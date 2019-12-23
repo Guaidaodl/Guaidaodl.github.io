@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Guaidaodl 的博客</title>
+    <link>http://yoursite.com/</link>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
+    
+    <description></description>
+    <pubDate>Mon, 23 Dec 2019 06:32:53 GMT</pubDate>
+    <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>使用 SDKMAN 管理开发环境.</title>
+      <link>http://yoursite.com/2019/12/23/sdkman/</link>
+      <guid>http://yoursite.com/2019/12/23/sdkman/</guid>
+      <pubDate>Mon, 23 Dec 2019 05:59:58 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;最近需要在 Mac 上同时使用两个不同的开发环境. 配置起来还比较麻烦. 使用 SDKMAN 则可以比较方便的管理.&lt;/p&gt;
+&lt;ul&gt;
+&lt;l
+        
+      
+      </description>
+      
+      <content:encoded><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>最近需要在 Mac 上同时使用两个不同的开发环境. 配置起来还比较麻烦. 使用 SDKMAN 则可以比较方便的管理.</p><ul><li>官网: <a href="https://sdkman.io/" target="_blank" rel="noopener">https://sdkman.io/</a></li></ul><h1 id="安装-SDKMAN"><a href="#安装-SDKMAN" class="headerlink" title="安装 SDKMAN"></a>安装 SDKMAN</h1><p>安装只需要运行一下命令:<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -s "https://get.sdkman.io" | bash</span><br></pre></td></tr></table></figure></p><h1 id="搜索和安装-JDK"><a href="#搜索和安装-JDK" class="headerlink" title="搜索和安装 JDK"></a>搜索和安装 JDK</h1><p>跟常见的包管理工具类似, 使用 SDKMAN 安装只需要使用 install 命令, 运行下面的命令就可以安装最新版本的 jdk.<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sdk install java</span><br></pre></td></tr></table></figure></p><p>需要搜索的时则可以使用 list 命令. 比如列出可用的 java 版本:<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sdk list java</span><br></pre></td></tr></table></figure></p><p>结果如下:<img src="/images/sdk_list_java.png" alt></p><p>安装指定的版本则需要在工具名后面添加 Identifier. 比如安装 jdk 8 需要用一下命令:<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sdk install java 8.0.232.j9-adpt</span><br></pre></td></tr></table></figure></p><h1 id="切换-jdk-的版本"><a href="#切换-jdk-的版本" class="headerlink" title="切换 jdk 的版本"></a>切换 jdk 的版本</h1><p>安装完之后可以利用 use 命令切换不同的版本, 比如切换到 jdk8:<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sdk use java 8.0.232.j9-adpt</span><br></pre></td></tr></table></figure></p><p>也可以使用 default 命令将 jdk8 设为默认的版本:<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sdk default java 8.0.232.j9-adpt</span><br></pre></td></tr></table></figure></p><p>使用 current 命令则可以查看当前版本:<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sdk current java</span><br></pre></td></tr></table></figure></p>]]></content:encoded>
+      
+      <comments>http://yoursite.com/2019/12/23/sdkman/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Emacs 的 Mode Line 上添加 Git Branch 的名字.</title>
+      <link>http://yoursite.com/2019/05/27/add-git-branch-in-emacs-model-line/</link>
+      <guid>http://yoursite.com/2019/05/27/add-git-branch-in-emacs-model-line/</guid>
+      <pubDate>Mon, 27 May 2019 12:33:30 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;p&gt;打算对自己的 Emacs 进行简单的定制, 就从比较简单的地方开始. 其实最正确地做法是用 doom-line.
+这篇博客以一个初学者(懂一点基础的 elisp, 但是没有专门学过)的角度写一下自己的研究过程.&lt;/p&gt;
+&lt;p&gt;第一步就是先分解一下这个需求, 将其拆分几个小问
+        
+      
+      </description>
+      
+      <content:encoded><![CDATA[<p>打算对自己的 Emacs 进行简单的定制, 就从比较简单的地方开始. 其实最正确地做法是用 doom-line.这篇博客以一个初学者(懂一点基础的 elisp, 但是没有专门学过)的角度写一下自己的研究过程.</p><p>第一步就是先分解一下这个需求, 将其拆分几个小问题:</p><ol><li>如何在 Emacs 里获取当前的分支名?</li><li>如何定制 Mode Line 里的信息.</li><li>将分支名加入 mode line 中.</li></ol><h1 id="从-Emacs-里获取当前的-Branch-信息"><a href="#从-Emacs-里获取当前的-Branch-信息" class="headerlink" title="从 Emacs 里获取当前的 Branch 信息."></a>从 Emacs 里获取当前的 Branch 信息.</h1><p>获取当前 git 的分支信息可以利用命令 <code>git rev-parse --abbrev-ref HEAD</code> 获取当前分支的名称. 所以这个问题其实可以转化成如何使用 elisp 运行 shell 命令并获取结果. 通过简单地 Google, 可以发现elisp 提供了 <code>shell-command</code> 和 <code>shell-command-to-string</code> 两个函数来执行外部的 shell 命令.</p><p>所以可以通过以下的代码来获取当前的 branch 信息. <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(shell-command-to-string &quot;git rev-parse --abbrev-ref HEAD&quot;)</span><br></pre></td></tr></table></figure></p><h1 id="如何定制-mode-line-里的信息"><a href="#如何定制-mode-line-里的信息" class="headerlink" title="如何定制 mode line 里的信息."></a>如何定制 mode line 里的信息.</h1><p>阅读关于官方两篇关于 mode line 的文档: <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Mode-Line.html" target="_blank" rel="noopener">The Mode Line</a>和 <a href="https://www.gnu.org/software/emacs/manual/html_node/elisp/Mode-Line-Format.html#Mode-Line-Format" target="_blank" rel="noopener">Mode Line Format</a> 并参考了一些其他的文档后, 可以比较全面地了解关于 mode line.</p><p>通过第二篇文档, 可以得知 mode line 的显示在大部分时候由 <code>mode-line-format</code> 决定. 可以通过改变<code>mode-line-format</code> 的值来改变 mode line 的显示内容. </p><p><code>mode-line-format</code> 是一个比较复杂的结构, 可以认为是多种类型组成的列表. 主要的类型有:</p><ol><li>string 单纯的显示.</li><li>特别的格式化字符串, 已 % 开头, 比如 %b 代表当前的 buffer 名. 可以参考 <a href="https://www.gnu.org/software/emacs/manual/html_node/elisp/_0025_002dConstructs.html#g_t_0025_002dConstructs" target="_blank" rel="noopener">%s-Contructs</a></li><li>(:eval form) 执行 form 并把执行结果当做 string 显示.</li></ol><p>明显 3 就是我们需要的. 比如一个简单的只显示 buffer name 和 git 分支名的 mode line 如下:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(setq mode-line-format</span><br><span class="line">(list</span><br><span class="line">&quot;%b&quot;</span><br><span class="line">&quot; &quot;</span><br><span class="line">&apos;(:eval (shell-command-to-string &quot;git rev-parse --abbrev-ref HEAD&quot;))))</span><br></pre></td></tr></table></figure><p>上面只是一个简单的定制, 离可用状态还很远. 后续还可以慢慢优化.</p><h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><ol><li><a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Mode-Line.html" target="_blank" rel="noopener">The Mode Line</a></li><li><a href="https://www.gnu.org/software/emacs/manual/html_node/elisp/Mode-Line-Format.html#Mode-Line-Format" target="_blank" rel="noopener">Mode Line Format</a></li><li><a href="http://emacs-fu.blogspot.com/2011/08/customizing-mode-line.html" target="_blank" rel="noopener">Customzing mode line</a></li></ol>]]></content:encoded>
+      
+      <comments>http://yoursite.com/2019/05/27/add-git-branch-in-emacs-model-line/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>我的 Mac 工具箱</title>
+      <link>http://yoursite.com/2018/09/13/software-mac/</link>
+      <guid>http://yoursite.com/2018/09/13/software-mac/</guid>
+      <pubDate>Thu, 13 Sep 2018 14:48:53 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;p&gt;作为一个工具控, 一直坚持调教自己的电脑. Mac 有很多不错的工具, 以下是我认为 Mac 装机必备的软件.&lt;/p&gt;
+&lt;h1 id=&quot;日常使用&quot;&gt;&lt;a href=&quot;#日常使用&quot; class=&quot;headerlink&quot; title=&quot;日常使用&quot;&gt;&lt;/a&gt;日常使用&lt;/h1&gt;&lt;h
+        
+      
+      </description>
+      
+      <content:encoded><![CDATA[<p>作为一个工具控, 一直坚持调教自己的电脑. Mac 有很多不错的工具, 以下是我认为 Mac 装机必备的软件.</p><h1 id="日常使用"><a href="#日常使用" class="headerlink" title="日常使用"></a>日常使用</h1><h2 id="Alfred-Spotlight"><a href="#Alfred-Spotlight" class="headerlink" title="Alfred Spotlight"></a>Alfred <del>Spotlight</del></h2><p>使用过一段时间的 Spotlight 之后还是觉得 Alfred 更顺手, 免费版已经够用.</p><h2 id="Chrome"><a href="#Chrome" class="headerlink" title="Chrome"></a>Chrome</h2><p>浏览器的王者, 无敌的扩展与插件.</p><h2 id="坚果云"><a href="#坚果云" class="headerlink" title="坚果云"></a>坚果云</h2><p>其实云服务很多, 但是国外的 Dropbox, One Driver, Google Drivere 等速度实在是太糟糕,国内的大部分云盘的定位不是同步盘而是存储盘. 再加上十分欣赏坚果云的理念, 所以选择了付费版.空间和流量用来存私人文件的已经十分足够了. 速度也不错, 还提供了历史版本的功能. </p><ul><li><a href="https://www.jianguoyun.com/" target="_blank" rel="noopener">官网</a></li></ul><h2 id="LastPass"><a href="#LastPass" class="headerlink" title="LastPass"></a>LastPass</h2><p>密码管理软件. 网上不停地有各种网站被拖库导致密码泄露的消息. 为了安全, 在不同的软件上使用不同的密码十分必要.但是要记住不同的密码还挺困难的, 所以需要一个密码管理器.</p><p>LastPass 还有生成密码和记录简单笔记的功能, 十分实用, 价格也比 1Password 要便宜一点.</p><ul><li><a href="https://www.lastpass.com" target="_blank" rel="noopener">官网</a></li></ul><h2 id="Paste"><a href="#Paste" class="headerlink" title="Paste"></a>Paste</h2><p>剪贴板管理工具, 可以记录文字和图片的复制记录. 功能比较简单, 但是是我见过颜值最高的同类软件.</p><ul><li><a href="https://itunes.apple.com/cn/app/paste-2/id967805235?l=en&amp;mt=12" target="_blank" rel="noopener">Paste - App Store</a></li></ul><h2 id="Snipaste"><a href="#Snipaste" class="headerlink" title="Snipaste"></a>Snipaste</h2><p>截图 + 贴图, 超良心的独立软件. 各种功能可以玩出花来.</p><ul><li><a href="https://zh.snipaste.com/" target="_blank" rel="noopener">官网</a></li></ul><h2 id="Calibre"><a href="#Calibre" class="headerlink" title="Calibre"></a>Calibre</h2><p>书籍类的 iTunes. 管理自己下载的电子书, 还带格式转换功能. 配合坚果云来使用, 可以在不同的设备之间同步书籍.</p><ul><li><a href="https://calibre-ebook.com/" target="_blank" rel="noopener">官网</a></li></ul><h2 id="Office-365"><a href="#Office-365" class="headerlink" title="Office 365"></a>Office 365</h2><p>三件套虽然用得不多, 但是确实是必不可少的软件. 唯一的遗憾就是送的 1TB 的 OneDriver 套餐因为网络问题不太好用.</p><h2 id="XMind-Zen"><a href="#XMind-Zen" class="headerlink" title="XMind Zen"></a>XMind Zen</h2><p>感觉应该是 XMind 抄袭 MindNode 之作, 但是是跨平台的. 免费版已经够用, 配合坚果云可以实现多平台同步.</p><h2 id="Onenote-EverNote"><a href="#Onenote-EverNote" class="headerlink" title="Onenote ~EverNote~"></a>Onenote ~EverNote~</h2><p>主要用来收集一些网上的文章和记一些速记. 配合 Chrome 的剪切插件特别方便. 相比 EverNote, 感觉 OneNote 更灵活一点.</p><h2 id="HyperSwitch-Bartender-Divvy"><a href="#HyperSwitch-Bartender-Divvy" class="headerlink" title="HyperSwitch, Bartender, Divvy"></a>HyperSwitch, Bartender, Divvy</h2><p>放在一起是因为我觉得这个应该是一个系统的基础功能, 而 Mac 却没有.</p><p>Mac 在很多方面做得不错, 但是在两个方面做得完全不如 Windows. 一个是文件管理, Finder 比 Windows上的 Explorer 差了不少, 更不用说 Windows 还有 TotalCommander 这种神器.</p><p>另一个是窗口管理, Mac 调整窗口大小十分困难, 没有 Windows 上贴边直接占一个位置的功能. 有了 Divvy就可以方便地调整大小了. 建议在 AppStore 上直接购买.</p><ul><li><a href="https://itunes.apple.com/cn/app/divvy-window-manager/id413857545?l=en&amp;mt=12" target="_blank" rel="noopener">Divvy - App Store</a></li></ul><h1 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h1><h2 id="Shadowsocks"><a href="#Shadowsocks" class="headerlink" title="Shadowsocks"></a>Shadowsocks</h2><p>上网必备. 平常生活没有 Google 还可以, 写程序没有 Google 真的是很太难了. 面向 Github 编程和面向StackOverflow 编程都是依赖与 Google 的.</p><h2 id="NeoVim-Emacs"><a href="#NeoVim-Emacs" class="headerlink" title="NeoVim, Emacs"></a>NeoVim, Emacs</h2><p>VSC 虽好, 但是无法再命令行中使用, NeoVim 是一个良好的补充. 现在的慢慢开始往 Eamcs + Evil 的转移,不过在超大文件上 Emacs 的性能和 Vim 差很多, 这时候还是需要使用 Vim</p><h2 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h2><p>命令行增强, 一个好用的命令行是开发必备. zsh 要比 bash 强大得多, 再加上有 oh-my-zsh 这种开箱即用的配置. 真是爽.</p><h3 id="zsh-的一些常用插件"><a href="#zsh-的一些常用插件" class="headerlink" title="zsh 的一些常用插件:"></a>zsh 的一些常用插件:</h3><ul><li>主题: powerlevel 9k</li><li>自动补全: zsh-autosuggestion</li></ul><h3 id="其他命令行工具"><a href="#其他命令行工具" class="headerlink" title="其他命令行工具"></a>其他命令行工具</h3><ul><li>fzf 交互性命令行.</li><li>z.lua 快速跳转.</li><li>ripgrep 用来替代 grep.</li></ul><h2 id="Android-Studio"><a href="#Android-Studio" class="headerlink" title="Android Studio"></a>Android Studio</h2><p>开发 Android 必备.</p><h2 id="IntelliJ-Idea"><a href="#IntelliJ-Idea" class="headerlink" title="IntelliJ Idea"></a>IntelliJ Idea</h2><p>纯 Java 开发必备. 可惜毕业后就不能使用教育版的激活码.</p><h2 id="Xcode"><a href="#Xcode" class="headerlink" title="Xcode"></a>Xcode</h2><p>开发 iOS 必备, 实在是不好用. 还好自己只是偶尔写点玩具来玩.</p><h2 id="Dash"><a href="#Dash" class="headerlink" title="Dash"></a>Dash</h2><p>文档查找器. 作者每年是一个新版本然后重新收费, 犹记得某一年作者在年度总结里写自己玩了半年的炉石,然后年底随便写写就出新版本了. 不过因为实在是太好用了, 每年依旧乖乖交费.</p>]]></content:encoded>
+      
+      <comments>http://yoursite.com/2018/09/13/software-mac/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>First Blood</title>
+      <link>http://yoursite.com/2018/09/10/First-Blood/</link>
+      <guid>http://yoursite.com/2018/09/10/First-Blood/</guid>
+      <pubDate>Mon, 10 Sep 2018 13:41:50 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;p&gt;我的第一篇博客.&lt;/p&gt;
+
+        
+      
+      </description>
+      
+      <content:encoded><![CDATA[<p>我的第一篇博客.</p>]]></content:encoded>
+      
+      <comments>http://yoursite.com/2018/09/10/First-Blood/#disqus_thread</comments>
+    </item>
+    
+  </channel>
+</rss>

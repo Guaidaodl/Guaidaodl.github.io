@@ -109,14 +109,14 @@
 
 
   <meta name="description" content="开心明星脸首先解释一下这个系列的名称的来源, 开心明星脸是很久以前在东南电视台播放的一个综艺 节目. 主要内容就是请找一些长得跟明星很想的普通人, 比如低配刘德华, 走调张学友之类. 为什么会有这个系列最近正在尝试使用 MVVM 的架构, 遇到很多实践上的问题, 想从业内的一些经验中学习. Android 这边 MVVM 起步比较晚, 可参考的不是很多. 于是想从在 MVVM 上迭代了很久的前端框">
-<meta name="keywords" content="Android, Redux, MVVM">
+<meta name="keywords" content="Android,Redux,MVVM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android 开心明星脸 -- Redux(0) - 初体验">
 <meta property="og:url" content="http://yoursite.com/2020/02/23/redux-0/index.html">
 <meta property="og:site_name" content="Guaidaodl 的博客">
 <meta property="og:description" content="开心明星脸首先解释一下这个系列的名称的来源, 开心明星脸是很久以前在东南电视台播放的一个综艺 节目. 主要内容就是请找一些长得跟明星很想的普通人, 比如低配刘德华, 走调张学友之类. 为什么会有这个系列最近正在尝试使用 MVVM 的架构, 遇到很多实践上的问题, 想从业内的一些经验中学习. Android 这边 MVVM 起步比较晚, 可参考的不是很多. 于是想从在 MVVM 上迭代了很久的前端框">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-02-23T15:52:36.777Z">
+<meta property="og:updated_time" content="2020-03-01T13:28:13.953Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 开心明星脸 -- Redux(0) - 初体验">
 <meta name="twitter:description" content="开心明星脸首先解释一下这个系列的名称的来源, 开心明星脸是很久以前在东南电视台播放的一个综艺 节目. 主要内容就是请找一些长得跟明星很想的普通人, 比如低配刘德华, 走调张学友之类. 为什么会有这个系列最近正在尝试使用 MVVM 的架构, 遇到很多实践上的问题, 想从业内的一些经验中学习. Android 这边 MVVM 起步比较晚, 可参考的不是很多. 于是想从在 MVVM 上迭代了很久的前端框">
@@ -232,7 +232,7 @@
           
           <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags<span class="badge">5</span></a>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags<span class="badge">7</span></a>
   </li>
         
         
@@ -240,7 +240,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">5</span></a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">6</span></a>
   </li>
 
       
@@ -333,16 +333,46 @@
                 
               
 
-              <time title="Created: 2020-02-23 23:47:41 / Modified: 23:52:36" itemprop="dateCreated datePublished" datetime="2020-02-23T23:47:41+08:00">2020-02-23</time>
+              <time title="Created: 2020-02-23 23:47:41" itemprop="dateCreated datePublished" datetime="2020-02-23T23:47:41+08:00">2020-02-23</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2020-03-01 21:28:13" itemprop="dateModified" datetime="2020-03-01T21:28:13+08:00">2020-03-01</time>
               
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/dev/" itemprop="url" rel="index"><span itemprop="name">dev</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -387,8 +417,8 @@ MVVM 起步比较晚, 可参考的不是很多. 于是想从在 MVVM 上迭代�
 <li>弹个 Toast 显示失败信息这个一次性任务如何通过 ViewModel 实现?</li>
 </ol>
 <p>下面就正式开始, 因为相比 Angular.js, Redux 要简单得多, 所以先从 Redux 开始.</p>
-<h1 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h1><p>关于 redux 的信息主要参考了 <a href="https://book.douban.com/subject/27033213/" target="_blank" rel="noopener">深入浅出 React 和 Redux</a> 
-这本书.</p>
+<h1 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h1><p>关于 redux 的信息主要参考了 <a href="https://book.douban.com/subject/27033213/" target="_blank" rel="noopener">深入浅出 React 和 Redux</a> 这本书. 因为本人 JS 水平低下, 主要的知识都来自此书. 在每一篇的学习部分只会罗列一些 Redux 核心概念与涉及思路, 具体的如何使用的内容和相关代码建议各位参考此书或者网络上的其他资料.</p>
+<p>如果完全对 Redux 没有了解的话可能会觉得这部分的内容有一定的断裂感, 不好理解.</p>
 <h2 id="Redux-的基本原则"><a href="#Redux-的基本原则" class="headerlink" title="Redux 的基本原则"></a>Redux 的基本原则</h2><p>Redux 是 React 上一个比较流行的状态管理库. 从 Dan Abramov 改进 Flux 而来. 有三大原则:</p>
 <ul>
 <li>唯一数据源(Single Source Of Truth)</li>
@@ -451,7 +481,11 @@ sealed class.</p>
       
         <div class="post-tags">
           
-            <a href="/tags/Android-Redux-MVVM/" rel="tag"># Android, Redux, MVVM</a>
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+            <a href="/tags/Redux/" rel="tag"># Redux</a>
+          
+            <a href="/tags/MVVM/" rel="tag"># MVVM</a>
           
         </div>
       
@@ -473,6 +507,10 @@ sealed class.</p>
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/02/27/redux-1/" rel="prev" title="Android 开心明星脸 -- Redux(1) - 传递 ViewModel">
+                Android 开心明星脸 -- Redux(1) - 传递 ViewModel <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -544,12 +582,27 @@ sealed class.</p>
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
               
 
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
               
 
               
@@ -569,7 +622,11 @@ sealed class.</p>
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -626,7 +683,7 @@ sealed class.</p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#开心明星脸"><span class="nav-number">1.</span> <span class="nav-text">开心明星脸</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么会有这个系列"><span class="nav-number">2.</span> <span class="nav-text">为什么会有这个系列</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实践上遇到的问题"><span class="nav-number">3.</span> <span class="nav-text">实践上遇到的问题.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Redux"><span class="nav-number">4.</span> <span class="nav-text">Redux</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redux-的基本原则"><span class="nav-number">4.1.</span> <span class="nav-text">Redux 的基本原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redux-的核心概念"><span class="nav-number">4.2.</span> <span class="nav-text">Redux 的核心概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#State"><span class="nav-number">4.2.1.</span> <span class="nav-text">State</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Action"><span class="nav-number">4.2.2.</span> <span class="nav-text">Action</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Store"><span class="nav-number">4.2.3.</span> <span class="nav-text">Store</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reducer"><span class="nav-number">4.2.4.</span> <span class="nav-text">Reducer</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简单实践"><span class="nav-number">5.</span> <span class="nav-text">简单实践</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#技术方案"><span class="nav-number">5.1.</span> <span class="nav-text">技术方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#State-1"><span class="nav-number">5.1.1.</span> <span class="nav-text">State</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Action-1"><span class="nav-number">5.1.2.</span> <span class="nav-text">Action</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Store-1"><span class="nav-number">5.1.3.</span> <span class="nav-text">Store</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reducer-1"><span class="nav-number">5.1.4.</span> <span class="nav-text">Reducer</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">5.2.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单-Demo"><span class="nav-number">5.3.</span> <span class="nav-text">简单 Demo</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#开心明星脸"><span class="nav-number">1.</span> <span class="nav-text">开心明星脸</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么会有这个系列"><span class="nav-number">2.</span> <span class="nav-text">为什么会有这个系列</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实践上遇到的问题"><span class="nav-number">3.</span> <span class="nav-text">实践上遇到的问题.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#学习"><span class="nav-number">4.</span> <span class="nav-text">学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redux-的基本原则"><span class="nav-number">4.1.</span> <span class="nav-text">Redux 的基本原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redux-的核心概念"><span class="nav-number">4.2.</span> <span class="nav-text">Redux 的核心概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#State"><span class="nav-number">4.2.1.</span> <span class="nav-text">State</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Action"><span class="nav-number">4.2.2.</span> <span class="nav-text">Action</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Store"><span class="nav-number">4.2.3.</span> <span class="nav-text">Store</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reducer"><span class="nav-number">4.2.4.</span> <span class="nav-text">Reducer</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简单实践"><span class="nav-number">5.</span> <span class="nav-text">简单实践</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#技术方案"><span class="nav-number">5.1.</span> <span class="nav-text">技术方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#State-1"><span class="nav-number">5.1.1.</span> <span class="nav-text">State</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Action-1"><span class="nav-number">5.1.2.</span> <span class="nav-text">Action</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Store-1"><span class="nav-number">5.1.3.</span> <span class="nav-text">Store</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reducer-1"><span class="nav-number">5.1.4.</span> <span class="nav-text">Reducer</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">5.2.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单-Demo"><span class="nav-number">5.3.</span> <span class="nav-text">简单 Demo</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>

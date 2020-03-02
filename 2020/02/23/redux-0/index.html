@@ -15,10 +15,10 @@
 
 
 <html class="theme-next gemini use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
 <meta name="theme-color" content="#222">
 
 
@@ -32,8 +32,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -56,9 +56,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
@@ -109,26 +109,29 @@
 
 
   <meta name="description" content="开心明星脸首先解释一下这个系列的名称的来源, 开心明星脸是很久以前在东南电视台播放的一个综艺 节目. 主要内容就是请找一些长得跟明星很想的普通人, 比如低配刘德华, 走调张学友之类. 为什么会有这个系列最近正在尝试使用 MVVM 的架构, 遇到很多实践上的问题, 想从业内的一些经验中学习. Android 这边 MVVM 起步比较晚, 可参考的不是很多. 于是想从在 MVVM 上迭代了很久的前端框">
-<meta name="keywords" content="Android,Redux,MVVM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android 开心明星脸 -- Redux(0) - 初体验">
 <meta property="og:url" content="http://yoursite.com/2020/02/23/redux-0/index.html">
 <meta property="og:site_name" content="Guaidaodl 的博客">
 <meta property="og:description" content="开心明星脸首先解释一下这个系列的名称的来源, 开心明星脸是很久以前在东南电视台播放的一个综艺 节目. 主要内容就是请找一些长得跟明星很想的普通人, 比如低配刘德华, 走调张学友之类. 为什么会有这个系列最近正在尝试使用 MVVM 的架构, 遇到很多实践上的问题, 想从业内的一些经验中学习. Android 这边 MVVM 起步比较晚, 可参考的不是很多. 于是想从在 MVVM 上迭代了很久的前端框">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-01T13:28:13.953Z">
+<meta property="article:published_time" content="2020-02-23T15:47:41.000Z">
+<meta property="article:modified_time" content="2020-03-01T13:28:13.953Z">
+<meta property="article:author" content="Guaidaodl">
+<meta property="article:tag" content="Android">
+<meta property="article:tag" content="Redux">
+<meta property="article:tag" content="MVVM">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android 开心明星脸 -- Redux(0) - 初体验">
-<meta name="twitter:description" content="开心明星脸首先解释一下这个系列的名称的来源, 开心明星脸是很久以前在东南电视台播放的一个综艺 节目. 主要内容就是请找一些长得跟明星很想的普通人, 比如低配刘德华, 走调张学友之类. 为什么会有这个系列最近正在尝试使用 MVVM 的架构, 遇到很多实践上的问题, 想从业内的一些经验中学习. Android 这边 MVVM 起步比较晚, 可参考的不是很多. 于是想从在 MVVM 上迭代了很久的前端框">
+
+
+  
+
+
+  <link rel="alternate" href="/feed.xml" title="Guaidaodl 的博客" type="application/atom+xml" />
 
 
 
-  <link rel="alternate" href="/feed.xml" title="Guaidaodl 的博客" type="application/atom+xml">
 
-
-
-
-  <link rel="canonical" href="http://yoursite.com/2020/02/23/redux-0/">
+  <link rel="canonical" href="http://yoursite.com/2020/02/23/redux-0/"/>
 
 
 
@@ -176,7 +179,7 @@
   </style>
 </noscript>
 
-</head>
+<meta name="generator" content="Hexo 4.2.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -224,7 +227,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
   </li>
         
         
@@ -232,7 +235,7 @@
           
           <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags<span class="badge">7</span></a>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags<span class="badge">7</span></a>
   </li>
         
         
@@ -240,7 +243,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">6</span></a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives<span class="badge">6</span></a>
   </li>
 
       
@@ -295,7 +298,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Guaidaodl">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/guaidao.jpg">
     </span>
 
@@ -356,7 +359,7 @@
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -450,7 +453,7 @@ sealed class.</p>
 <p>总体来说是比较轻量级的, Redux 的源码其实也不是很多. 只是提出核心的概念, 如果想要真正用起来还需要很多辅助的库. </p>
 <h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>因为要实现的功能比较少, 其实就只有 Store 是需要定义接口与创建方法. 利用 LiveData 可以比较简单的实现. 
 核心代码如下, 完整代码在<a href="https://github.com/Guaidaodl/Android-Redux/blob/master/Andux-Base/app/src/main/java/me/guaidaodl/andux/core/Store.kt" target="_blank" rel="noopener">这里</a></p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 跟 Lifecycle 绑定的 Store</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Store</span>&lt;<span class="type">State, Action</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> state: State</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">dispatch</span><span class="params">(action: <span class="type">Action</span>)</span></span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 照抄 LiveData 里的 observer 相关的接口.</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">observe</span><span class="params">(owner: <span class="type">LifecycleOwner</span>, observer: <span class="type">Observer</span>&lt;<span class="type">in</span> <span class="type">State</span>&gt;)</span></span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">observeForever</span><span class="params">(observer: <span class="type">Observer</span>&lt;<span class="type">in</span> <span class="type">State</span>&gt;)</span></span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">removeObserver</span><span class="params">(observer: <span class="type">Observer</span>&lt;<span class="type">in</span> <span class="type">State</span>&gt;)</span></span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">removeObservers</span><span class="params">(owner: <span class="type">LifecycleOwner</span>)</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 创建利用 ViewModel 和 LiveData 来实现 Store</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="type">&lt;State, Action&gt;</span> <span class="title">createStore</span><span class="params">(initState: <span class="type">State</span>, reducer: (<span class="type">State</span>, Action)</span></span> -&gt; State): Store&lt;State, Action&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">object</span>: Store&lt;State, Action&gt; &#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">val</span> liveState = MutableLiveData(initState)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">override</span> <span class="keyword">val</span> state: State <span class="keyword">get</span>() = liveState.value!!</span><br><span class="line"></span><br><span class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">dispatch</span><span class="params">(action: <span class="type">Action</span>)</span></span> &#123;</span><br><span class="line">            liveState.value = reducer(state, action)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 跟 Lifecycle 绑定的 Store</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Store</span>&lt;<span class="type">State, Action</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> state: State</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">dispatch</span><span class="params">(action: <span class="type">Action</span>)</span></span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 照抄 LiveData 里的 observer 相关的接口.</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">observe</span><span class="params">(owner: <span class="type">LifecycleOwner</span>, observer: <span class="type">Observer</span>&lt;<span class="type">in</span> <span class="type">State</span>&gt;)</span></span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">observeForever</span><span class="params">(observer: <span class="type">Observer</span>&lt;<span class="type">in</span> <span class="type">State</span>&gt;)</span></span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">removeObserver</span><span class="params">(observer: <span class="type">Observer</span>&lt;<span class="type">in</span> <span class="type">State</span>&gt;)</span></span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">removeObservers</span><span class="params">(owner: <span class="type">LifecycleOwner</span>)</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 创建利用 ViewModel 和 LiveData 来实现 Store</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="type">&lt;State, Action&gt;</span> <span class="title">createStore</span><span class="params">(initState: <span class="type">State</span>, reducer: (<span class="type">State</span>, <span class="type">Action</span>) -&gt; <span class="type">State</span>)</span></span>: Store&lt;State, Action&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">object</span>: Store&lt;State, Action&gt; &#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">val</span> liveState = MutableLiveData(initState)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">override</span> <span class="keyword">val</span> state: State <span class="keyword">get</span>() = liveState.value!!</span><br><span class="line"></span><br><span class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">dispatch</span><span class="params">(action: <span class="type">Action</span>)</span></span> &#123;</span><br><span class="line">            liveState.value = reducer(state, action)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在实现 createStore 函数的时候考虑过是否直接把 Store 写一个 ViewModel 的子类, 二者功能十分类似.
 但是考虑到 Redux 强调单一数据源, 一个 store 的生命周期可能横跨多个页面. 最后还是放弃了这个想法.</p>
 <p>另外看了一些 Android 官方关于 ViewModel 和 LiveData 的文章, 感觉思路跟 Flux 差不多.</p>
@@ -569,7 +572,9 @@ sealed class.</p>
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/images/guaidao.jpg" alt="Guaidaodl">
+              <img class="site-author-image" itemprop="image"
+                src="/images/guaidao.jpg"
+                alt="Guaidaodl" />
             
               <p class="site-author-name" itemprop="name">Guaidaodl</p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -580,7 +585,7 @@ sealed class.</p>
               
                 <div class="site-state-item site-state-posts">
                 
-                  <a href="/archives/">
+                  <a href="/archives/%20%7C%7C%20archive">
                 
                     <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">posts</span>
@@ -594,8 +599,6 @@ sealed class.</p>
                 <div class="site-state-item site-state-categories">
                   <a href="/categories/index.html">
                     
-                    
-                      
                     
                       
                     
@@ -717,7 +720,7 @@ sealed class.</p>
 
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.9.0</div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v4.2.0</div>
 
 
 

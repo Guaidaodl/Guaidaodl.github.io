@@ -114,15 +114,16 @@
 <meta property="og:url" content="http://yoursite.com/2020/02/27/redux-1/index.html">
 <meta property="og:site_name" content="Guaidaodl 的博客">
 <meta property="og:description" content="上一篇文章中我列出了关于 MVVM 实践中的问题. 其中第 4 个问题是    那嵌套很深的组件如何获取 ViewModel?   为什么跳过了第二个和第三个问题呢? 难道有什么深意? 不, 只是因为我看的书先讨论到了这个问题 其实说到这个问题, 作为一个资深的面向 Github 编程的 Java 程序员, 我脑海中的复现的第一个词是依赖注入. DI 确实是最容易想到, 也可能是最方便的做法. 不">
+<meta property="og:image" content="http://yoursite.com/images/Redux-1-2.png">
 <meta property="og:image" content="http://yoursite.com/images/Redux-1-1.png">
 <meta property="article:published_time" content="2020-02-27T10:21:58.000Z">
-<meta property="article:modified_time" content="2020-03-01T16:12:05.267Z">
+<meta property="article:modified_time" content="2020-03-15T09:35:30.913Z">
 <meta property="article:author" content="Guaidaodl">
 <meta property="article:tag" content="Android">
 <meta property="article:tag" content="Redux">
 <meta property="article:tag" content="MVVM">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/images/Redux-1-1.png">
+<meta name="twitter:image" content="http://yoursite.com/images/Redux-1-2.png">
 
 
   
@@ -355,7 +356,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2020-03-02 00:12:05" itemprop="dateModified" datetime="2020-03-02T00:12:05+08:00">2020-03-02</time>
+                <time title="Modified: 2020-03-15 17:35:30" itemprop="dateModified" datetime="2020-03-15T17:35:30+08:00">2020-03-15</time>
               
             
           </span>
@@ -432,12 +433,15 @@ react-redux 就是其中一个, 该库主要是解决 react 组件如何和 redu
 </ol>
 <p>其实可以把两个功能分开到不同的组件. 然后通过组合的方式来实现功能. 通常把负责与 Store 交互的组件叫做容器组件
 (Container Component), 负责渲染的组件成为展示组件(Presentational Component). 
-也叫聪明组件(Smart Component) 和傻瓜组件(Dumb Component). 如果了解 Flutter, 这两种组件可以映射到
+也叫聪明组件(Smart Component) 和傻瓜组件(Dumb Component). 如果了解 Flutter, 这两种组件差不多可以映射到
 StatefulWidge 和 StatelessWidget.</p>
 <p>通过把一个简单的组件划分成两层以后, 实际负责渲染的组件跟 Store 解耦. 更容易拿来复用. </p>
 <h3 id="Provider"><a href="#Provider" class="headerlink" title="Provider"></a>Provider</h3><p>React 有一个叫 context 特性, 只要一棵组件树的根节点提供了 Context, 那其他的子节点就可以访问到这个 Context.
 react-redux 这个库利用了这个特性, 将组件树的根节点换成了一个定义好的 Provider, 这个 Provider
-的功能就是提供一个含有 store 的 Context.</p>
+的功能就是提供一个含有 store 的 Context. 整个流程可以概括为下面的图: Provider
+提供含有 Store 的 Context, 然后 Smart Component 从 Context 中获取 State, 然后再把 
+State 转化成 Component 的 props.</p>
+<p><img src="/images/Redux-1-2.png" alt="图片"></p>
 <p>经过上面的两个操作. 像上一个 demo 那种简单的组件结构变化如下.</p>
 <p><img src="/images/Redux-1-1.png" alt="图片"></p>
 <p>可以看到变得复杂了一点, 不过最底下的两个 Counter 可以<strong>复用</strong>了.</p>
@@ -461,10 +465,14 @@ React 中有一个非常核心的概念是 VDOM(Virtual DOM), VDOM 的创建和�
 <p>其返回值也是一个函数, 再调用这函数, 并传入一个需要包装的 Presentational Component 
 就可以动态产生一个 Containter Component. 用法如下:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">connect(mapStateToProps, mapDispatchToProps)(Counter)</span><br></pre></td></tr></table></figure>
-<p>这种操作在静态类型的语言中实在是太难..别说是 Java, 我估计 Dart 都做不到.</p>
+<p>这种操作在静态类型的语言中实在是太难..别说是 Java, 我估计 Dart 都做不到. </p>
 </li>
 </ul>
-<p>所以这次的模仿只能透过现象看本质. 看能不能模仿一下设计思路了.</p>
+<p>基于上面的两个原因, 想了挺多办法来模仿, 不过最后都没有办法达到 react-redux 这种浑然天成的感觉.
+下面是一些尝试的思路.</p>
+<h2 id="Conainter-Component"><a href="#Conainter-Component" class="headerlink" title="Conainter Component"></a>Conainter Component</h2><p>Container 从指责分析其实就是一个典型 Adapter. 将 State 转换成 View 的 props, 但是在 Android
+中, 这样的指责会分散在各种地方, 比如 Activity, Fragment, RecyclerView 的 Adapter, 甚至是
+Databingding 的 xml 文件中. 没有一个统一的方案.</p>
 <h2 id="Provider-1"><a href="#Provider-1" class="headerlink" title="Provider"></a>Provider</h2><p>前面提到 Provider 其实就是利用 context 这个特性. 正好 Android 当中的所有 View 也都有 context 
 这个属性, 通常就是对应的 Activity, 所以这里我们只需要让 Activity 实现一个接口, 让 Container<br>Component 对应的东西可以取得 Store 就好. </p>
 <p>实现很简单, 首先定义一个接口.</p>
@@ -478,6 +486,9 @@ React 中有一个非常核心的概念是 VDOM(Virtual DOM), VDOM 的创建和�
 
 <p>但是呢, 前面又说到 Containter Component 如果用 View 来模仿的话, 性能会有问题. Presentational
 Component 又不会有读取 store 的操作, 这个方案的价值很低.</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>这次的尝试比较失败. 想要借鉴方案比较困难. 总的来说 redux 就是利用 context 
+让这个组件树里的组件都可以比较容易地读取 Store. 只要可以实现这个目标也不同太多纠结于方案的问题,
+这部分的内容先放下, 后面有时间再想一套基于依赖注入的方案.</p>
 
       
     </div>
@@ -696,7 +707,7 @@ Component 又不会有读取 store 的操作, 这个方案的价值很低.</p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#学习"><span class="nav-number">1.</span> <span class="nav-text">学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#单例-全局变量"><span class="nav-number">1.1.</span> <span class="nav-text">单例, 全局变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#react-redux"><span class="nav-number">1.2.</span> <span class="nav-text">react-redux</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#容器组件和展示组件"><span class="nav-number">1.2.1.</span> <span class="nav-text">容器组件和展示组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Provider"><span class="nav-number">1.2.2.</span> <span class="nav-text">Provider</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#模仿"><span class="nav-number">2.</span> <span class="nav-text">模仿</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Provider-1"><span class="nav-number">2.1.</span> <span class="nav-text">Provider</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#学习"><span class="nav-number">1.</span> <span class="nav-text">学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#单例-全局变量"><span class="nav-number">1.1.</span> <span class="nav-text">单例, 全局变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#react-redux"><span class="nav-number">1.2.</span> <span class="nav-text">react-redux</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#容器组件和展示组件"><span class="nav-number">1.2.1.</span> <span class="nav-text">容器组件和展示组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Provider"><span class="nav-number">1.2.2.</span> <span class="nav-text">Provider</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#模仿"><span class="nav-number">2.</span> <span class="nav-text">模仿</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Conainter-Component"><span class="nav-number">2.1.</span> <span class="nav-text">Conainter Component</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Provider-1"><span class="nav-number">2.2.</span> <span class="nav-text">Provider</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
